@@ -34,4 +34,36 @@ namespace AntonioHR.EasyDatabases
             return byIdEntries[id];
         }
     }
+
+
+
+    public class LoadedEasyDatabase<TContainer, TObj> : ScriptableObject
+        where TContainer : IContainer<TObj>
+    {
+        private Dictionary<Type, TContainer> byTypeEntries;
+        private Dictionary<string, TContainer> byIdEntries;
+
+        public LoadedEasyDatabase(Dictionary<Type, TContainer> byTypeEntries, Dictionary<string, TContainer> byIdEntries)
+        {
+            this.byTypeEntries = byTypeEntries;
+            this.byIdEntries = byIdEntries;
+        }
+
+
+        public TContainer Get<T>() where T : TObj
+        {
+            return byTypeEntries[typeof(T)];
+        }
+
+
+        public TContainer Get<T>(string id) where T : TObj
+        {
+            return byIdEntries[id];
+        }
+
+        public TContainer Get(string id)
+        {
+            return byIdEntries[id];
+        }
+    }
 }

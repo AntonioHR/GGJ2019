@@ -8,20 +8,21 @@ namespace AntonioHR.EasyDatabases
 {
     public delegate TResult LoadCallback<TResult, TObj>(TObj obj);
 
-    public abstract class EasyDatabase<TObj> : ScriptableObject
+    [Serializable]
+    public class IdEntry<T>
     {
+        public string Id;
+        public T Value;
+    }
 
-        [Serializable]
-        private class IdEntry
-        {
-            public string Id;
-            public TObj Value;
-        }
+    public abstract class EasyDatabase<TObj, TEntriesID> : ScriptableObject
+        where TEntriesID : IdEntry<TObj>
+    {
 
         [SerializeField]
         private List<TObj> byTypeEntries;
         [SerializeField]
-        private List<IdEntry> byIdEntries;
+        private List<TEntriesID> byIdEntries;
 
 
         public LoadedEasyDatabase<TObj> Load()
@@ -30,11 +31,12 @@ namespace AntonioHR.EasyDatabases
         }
 
 
-        public LoadedEasyDatabase<TResult> Load<TResult>(LoadCallback<TResult, TObj> creationCallback)
+        public LoadedEasyDatabase<TContainer, TObj> Load<TContainer>(LoadCallback<TContainer, TObj> creationCallback)
+            where TContainer : IContainer<TObj>
         {
-            Dictionary<Type, TResult> byType = byTypeEntries.ToDictionary(x => x.GetType(), x => creationCallback(x));
-            Dictionary<string, TResult> byID = byIdEntries.ToDictionary(x => x.Id, x => creationCallback(x.Value));
-            return new LoadedEasyDatabase<TResult>(byType, byID);
+            Dictionary<Type, TContainer> byType = byTypeEntries.ToDictionary(x => x.GetType(), x => creationCallback(x));
+            Dictionary<string, TContainer> byID = byIdEntries.ToDictionary(x => x.Id, x => creationCallback(x.Value));
+            return new LoadedEasyDatabase<TContainer, TObj>(byType, byID);
         }
     }
 }

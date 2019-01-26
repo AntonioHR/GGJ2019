@@ -10,8 +10,6 @@ namespace AntonioHR.Services
     public class SceneStarter : MonoBehaviour
     {
         [SerializeField]
-        private ServiceManager managerPrefab;
-        [SerializeField]
         private GameScene scene;
 
         private void Start()

@@ -9,7 +9,10 @@ using UnityEngine;
 namespace AntonioHR.Services
 {
     [CreateAssetMenu(menuName ="AntonioHR/Services/Database")]
-    public class ServicesDB : EasyDatabase<Service>
+    public class ServicesDB : EasyDatabase<Service, ServicesDB.IdEntry>
     {
+        [Serializable]
+        public class IdEntry : IdEntry<Service> { }
+
     }
 }

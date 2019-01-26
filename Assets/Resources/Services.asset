@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a0bb3a45c467634fa1d20ff280630c1, type: 3}
-  m_Name: services
+  m_Name: Services
   m_EditorClassIdentifier: 
   byTypeEntries: []
+  byIdEntries: []
