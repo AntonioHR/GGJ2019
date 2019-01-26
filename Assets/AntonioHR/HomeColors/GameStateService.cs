@@ -13,7 +13,7 @@ namespace AntonioHR.HomeColors
         public event ScoreChangeCallback ScoreChanged;
 
 
-        private int score;
+        private int score = 1;
 
         public int Score { get { return score; } }
 
