@@ -67,12 +67,6 @@ namespace AntonioHR.HomeColors.Player
         {
             this.movement = playerMovement;
         }
-
-
-
-        public void Push(Vector3 delta)
-        {
-            movement.Push(delta);   
-        }
+        
     }
 }

@@ -14,7 +14,6 @@ namespace AntonioHR.HomeColors.Player
         [SerializeField]
         private float speed = 5;
         float fixatedY;
-        private Vector3 move;
 
         void Awake()
         {
@@ -28,10 +27,10 @@ namespace AntonioHR.HomeColors.Player
 
         void Update()
         {
-            move = InputAsMoveAxis;
+            var move = InputAsMoveAxis;
             body.IsMoving = move.sqrMagnitude > 0;
             body.MoveDirection = move;
-            charController.Move(move * speed);
+            charController.Move(move * speed * Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -52,10 +51,6 @@ namespace AntonioHR.HomeColors.Player
                 return rotation * vecBeforeRot;
             }
         }
-
-        public void Push(Vector3 delta)
-        {
-            charController.Move(delta);
-        }
+        
     }
 }
