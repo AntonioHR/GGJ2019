@@ -6,8 +6,11 @@ using System.Linq;
 
 namespace AntonioHR.EasyDatabases
 {
-    public abstract class ByTypeDatabase<TObj> : ScriptableObject
+    public delegate TResult LoadCallback<TResult, TObj>(TObj obj);
+
+    public abstract class EasyDatabase<TObj> : ScriptableObject
     {
+
         [Serializable]
         private class IdEntry
         {
@@ -27,12 +30,11 @@ namespace AntonioHR.EasyDatabases
         }
 
 
-        public LoadedEasyDatabase<TContainer> LoadWithContainers<TContainer>(ContainerCreationCallback<TContainer, TObj> creationCallback)
-            where TContainer : IContainer<TObj>
+        public LoadedEasyDatabase<TResult> Load<TResult>(LoadCallback<TResult, TObj> creationCallback)
         {
-            Dictionary<Type, TContainer> byType = byTypeEntries.ToDictionary(x => x.GetType(), x => creationCallback(x));
-            Dictionary<string, TContainer> byID = byIdEntries.ToDictionary(x => x.Id, x => creationCallback(x.Value));
-            return new LoadedEasyDatabase<TContainer>(byType, byID);
+            Dictionary<Type, TResult> byType = byTypeEntries.ToDictionary(x => x.GetType(), x => creationCallback(x));
+            Dictionary<string, TResult> byID = byIdEntries.ToDictionary(x => x.Id, x => creationCallback(x.Value));
+            return new LoadedEasyDatabase<TResult>(byType, byID);
         }
     }
 }

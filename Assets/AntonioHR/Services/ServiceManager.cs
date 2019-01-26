@@ -1,18 +1,42 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ServiceManager : MonoBehaviour
+namespace AntonioHR.Services
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ServiceManager : MonoBehaviour
     {
-        
-    }
+        private static ServiceManager instance;
+        public static ServiceManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GameObject("[ServiceManager]").AddComponent<ServiceManager>();
+                    instance.Prepare();
+                    DontDestroyOnLoad(instance);
+                }
+                return instance;
+            }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private class Entry : IContainer<Service>
+        {
+            private Service prefab;
+
+            public Service Value
+            {
+                get { return prefab; }
+            }
+        }
+
+        private void Prepare()
+        {
+            var db = Resources.Load<ServicesDB>("Services");
+
+            
+        }
     }
 }
