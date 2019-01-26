@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace AntonioHR.HomeColors
+namespace AntonioHR.HomeColors.PlayerBehaviours
 {
     public class CoordinatedPathers : MonoBehaviour
     {

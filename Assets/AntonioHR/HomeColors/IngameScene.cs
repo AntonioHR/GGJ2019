@@ -1,4 +1,5 @@
-﻿using AntonioHR.HomeColors.Player;
+﻿
+using AntonioHR.HomeColors.PlayerBehaviours;
 using AntonioHR.Services;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace AntonioHR.HomeColors
     public class IngameScene : GameScene
     {
         [SerializeField]
-        private PlayerMovement player;
+        private Player player;
 
 
         public override void Prepare(ServiceManager serviceManager)
@@ -22,7 +23,7 @@ namespace AntonioHR.HomeColors
 
         public override void Run()
         {
-            player.OnGameStarted();
+            player.Prepare(this);
         }
     }
 }
