@@ -8,7 +8,7 @@ namespace AntonioHR.Services
 {
     public class ServiceManager : MonoBehaviour
     {
-        private static ServiceManager instance;
+        private static ServiceManager instance = null;
 
         public static ServiceManager Instance
         {
@@ -16,7 +16,7 @@ namespace AntonioHR.Services
             {
                 if (instance == null)
                 {
-                    instance = new GameObject("[ServiceManager]").AddComponent<ServiceManager>();
+                    new GameObject("[ServiceManager]").AddComponent<ServiceManager>();
                     instance.Prepare();
                     DontDestroyOnLoad(instance);
                 }
@@ -56,14 +56,22 @@ namespace AntonioHR.Services
 
         private LoadedEasyDatabase<Entry, Service> db;
 
+        private void Awake()
+        {
+            if (instance == null)
+                instance = this;
+            else
+                GameObject.Destroy(this);
+        }
 
         private void Prepare()
         {
             var db = Resources.Load<ServicesDB>("Services");
             this.db = db.Load<Entry>(prefab => new Entry(prefab, this));
         }
+        
 
-        public T GetOrLoadService<T>(Action<T> onLoadedCallback) where T : Service
+        public T GetOrLoadService<T>(Action<T> onLoadedCallback = null) where T : Service
         {
             var entry = db.Get<T>();
 
@@ -73,10 +81,17 @@ namespace AntonioHR.Services
             {
                 entry.Load();
                 T result = (T)entry.Service;
-                onLoadedCallback(result);
+                if(onLoadedCallback != null)
+                    onLoadedCallback(result);
                 result.Init();
                 return result;
             }
+        }
+
+
+        public static T GetService<T>() where T : Service
+        {
+            return instance.GetOrLoadService<T>(null);
         }
     }
 }

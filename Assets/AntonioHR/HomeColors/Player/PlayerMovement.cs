@@ -25,6 +25,11 @@ namespace AntonioHR.HomeColors.Player
             fixatedY = transform.position.y;
         }
 
+        public void OnGameStarted()
+        {
+            Debug.Log("Player - On Game Started");
+        }
+
         void Update()
         {
             var move = InputAsMoveAxis;

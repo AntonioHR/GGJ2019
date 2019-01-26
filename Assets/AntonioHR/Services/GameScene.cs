@@ -9,7 +9,7 @@ namespace AntonioHR.Services
 {
     public abstract class GameScene : MonoBehaviour
     {
-        public abstract void Prepare();
+        public abstract void Prepare(ServiceManager serviceManager);
         public abstract void Run();
 
     }

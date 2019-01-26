@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0bb3a45c467634fa1d20ff280630c1, type: 3}
   m_Name: Services
   m_EditorClassIdentifier: 
-  byTypeEntries: []
+  byTypeEntries:
+  - {fileID: 456516533705542086, guid: 82ee421337b0cc643aac84fb4980473d, type: 3}
   byIdEntries: []

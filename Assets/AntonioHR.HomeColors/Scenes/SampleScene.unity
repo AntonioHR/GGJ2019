@@ -608,7 +608,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1136
+  m_Name: pb_Mesh-1142
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3336,7 +3336,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1148
+  m_Name: pb_Mesh-1154
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4998,7 +4998,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1146
+  m_Name: pb_Mesh-1152
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5545,6 +5545,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337099227}
   m_Mesh: {fileID: 2038861805}
+--- !u!114 &1350554788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8127833378483164986, guid: 0e326e1e76e0e514ca5df89705eb4cde,
+    type: 3}
+  m_PrefabInstance: {fileID: 8127833378483164984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f55c79dfaafad4ca65366641999b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1381933730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5977,7 +5989,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1134
+  m_Name: pb_Mesh-1140
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7728,7 +7740,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1150
+  m_Name: pb_Mesh-1156
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7939,6 +7951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a3fba644c0e124999f42ae25791b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1350554788}
 --- !u!1001 &8127833378483164984
 PrefabInstance:
   m_ObjectHideFlags: 0

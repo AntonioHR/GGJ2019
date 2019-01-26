@@ -16,7 +16,7 @@ namespace AntonioHR.Services
         {
             ServiceManager serviceManager = ServiceManager.Instance;
 
-            scene.Prepare();
+            scene.Prepare(serviceManager);
             scene.Run();
         }
     }

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace AntonioHR.EasyDatabases
 {
-    public class LoadedEasyDatabase<TObj> : ScriptableObject
+    public class LoadedEasyDatabase<TObj>
     {
         private Dictionary<Type, TObj> byTypeEntries;
         private Dictionary<string, TObj> byIdEntries;
@@ -37,7 +37,7 @@ namespace AntonioHR.EasyDatabases
 
 
 
-    public class LoadedEasyDatabase<TContainer, TObj> : ScriptableObject
+    public class LoadedEasyDatabase<TContainer, TObj> 
         where TContainer : IContainer<TObj>
     {
         private Dictionary<Type, TContainer> byTypeEntries;
