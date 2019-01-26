@@ -28,11 +28,11 @@ namespace AntonioHR.HomeColors.Audio
 
         [SerializeField]
         private AudioRange pinkAudio;
+        [SerializeField]
+        private float decay = 2f;
 
-        private float pinkMaxInFrame;
-
-
-        
+        private float pinkValInFrame;
+        private float pinkVal;
 
         public override void Init()
         {
@@ -41,16 +41,16 @@ namespace AntonioHR.HomeColors.Audio
 
         private void LateUpdate()
         {
-            float setValue = pinkAudio.Eval(pinkMaxInFrame);
-            Debug.LogFormat("Set Melody To {0}", setValue);
+            //Debug.LogFormat("Set Melody To {0}", setValue);
+            pinkVal = Mathf.Max(pinkValInFrame, pinkVal - decay * Time.deltaTime);
+            float setValue = pinkAudio.Eval(pinkVal);
             mixer.SetFloat("Melody", setValue);
-            pinkMaxInFrame = 0;
+            pinkValInFrame = 0;
         }
 
         public void SetPinkNearby(float value)
         {
-            
-            pinkMaxInFrame = Mathf.Max(value, pinkMaxInFrame);
+            pinkValInFrame = Mathf.Max(value, pinkValInFrame);
         }
     }
 }
