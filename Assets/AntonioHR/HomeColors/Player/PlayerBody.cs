@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace AntonioHR.HomeColors
+namespace AntonioHR.HomeColors.Player
 {
     [RequireComponent(typeof(Animator))]
     public class PlayerBody : MonoBehaviour
@@ -15,6 +15,7 @@ namespace AntonioHR.HomeColors
         private Vector3 moveDirection;
         private float rotateVelocity;
         private float rotateTime = .2f;
+        private PlayerMovement movement;
         private readonly Vector3 defaultDirection = Vector3.right;
 
         public bool IsMoving
@@ -59,6 +60,19 @@ namespace AntonioHR.HomeColors
             euler.y = Mathf.SmoothDampAngle(euler.y, angle, ref rotateVelocity, rotateTime);
             euler.y = angle;
             transform.eulerAngles = euler;
+        }
+
+
+        public void Setup(PlayerMovement playerMovement)
+        {
+            this.movement = playerMovement;
+        }
+
+
+
+        public void Push(Vector3 delta)
+        {
+            movement.Push(delta);   
         }
     }
 }

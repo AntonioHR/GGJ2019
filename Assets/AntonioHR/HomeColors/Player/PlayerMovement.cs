@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AntonioHR.HomeColors
+namespace AntonioHR.HomeColors.Player
 {
-    [RequireComponent(typeof(CharacterController))]
     public class PlayerMovement : MonoBehaviour
     {
         private CharacterController charController;
@@ -13,18 +13,32 @@ namespace AntonioHR.HomeColors
 
         [SerializeField]
         private float speed = 5;
-        
+        float fixatedY;
+        private Vector3 move;
+
         void Awake()
         {
             charController = GetComponent<CharacterController>();
         }
-        
+        private void Start()
+        {
+            body.Setup(this);
+            fixatedY = transform.position.y;
+        }
+
         void Update()
         {
-            var move = InputAsMoveAxis;
+            move = InputAsMoveAxis;
             body.IsMoving = move.sqrMagnitude > 0;
             body.MoveDirection = move;
             charController.Move(move * speed);
+        }
+
+        private void LateUpdate()
+        {
+            var pos = transform.position;
+            pos.y = fixatedY;
+            transform.position = pos;
         }
 
         public Vector3 InputAsMoveAxis
@@ -37,6 +51,11 @@ namespace AntonioHR.HomeColors
                     vecBeforeRot.Normalize();
                 return rotation * vecBeforeRot;
             }
+        }
+
+        public void Push(Vector3 delta)
+        {
+            charController.Move(delta);
         }
     }
 }
