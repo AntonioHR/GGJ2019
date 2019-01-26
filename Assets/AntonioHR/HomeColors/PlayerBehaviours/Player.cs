@@ -13,7 +13,8 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         private PlayerBody body;
         [SerializeField]
         private PlayerMovement move;
-        [SerializeField]
+
+
         private IngameScene scene;
 
         public void Prepare(IngameScene ingameScene)

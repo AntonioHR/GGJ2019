@@ -20,9 +20,8 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             charController = GetComponent<CharacterController>();
         }
 
-        internal void Prepare(Player player)
+        public void Prepare(Player player)
         {
-            throw new NotImplementedException();
         }
 
         private void Start()

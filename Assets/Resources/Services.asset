@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   byTypeEntries:
   - {fileID: 456516533705542086, guid: 82ee421337b0cc643aac84fb4980473d, type: 3}
+  - {fileID: 1438270687708597490, guid: d5e00997cc5ce284e97e5902560043a2, type: 3}
   byIdEntries: []

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AntonioHR.Interactables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using UnityEngine;
 namespace AntonioHR.HomeColors.PlayerBehaviours
 {
     [RequireComponent(typeof(Animator))]
-    public class PlayerBody : MonoBehaviour
+    public class PlayerBody : MonoBehaviour, IProxyFor<Player>
     {
         private bool isMoving;
         private Vector3 moveDirection;

@@ -15,6 +15,8 @@ namespace AntonioHR.HomeColors
 
         private int score;
 
+        public int Score { get { return score; } }
+
         public override void Init()
         {
 

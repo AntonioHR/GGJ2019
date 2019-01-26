@@ -1,4 +1,5 @@
 ﻿
+using AntonioHR.HomeColors.Audio;
 using AntonioHR.HomeColors.PlayerBehaviours;
 using AntonioHR.Services;
 using System;
@@ -19,6 +20,7 @@ namespace AntonioHR.HomeColors
         public override void Prepare(ServiceManager serviceManager)
         {
             serviceManager.GetOrLoadService<GameStateService>();
+            serviceManager.GetOrLoadService<ColorsMusicService>();
         }
 
         public override void Run()

@@ -4,23 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AntonioHR.HomeColors.PlayerBehaviours;
+using AntonioHR.Interactables;
 using AntonioHR.Services;
 using DG.Tweening;
 using UnityEngine;
 
 namespace AntonioHR.HomeColors.Interactables
 {
-    public class Pickup : PlayerTrigger
+    public class Pickup : ObjectTrigger<Player>
     {
         private Player player;
         private GameStateService gameStateService;
 
         private void Start()
         {
-            gameStateService = ServiceManager.GetService<GameStateService>();
+            gameStateService = ServiceManager.Get<GameStateService>();
         }
 
-        protected override void OnTouchedPlayer(Player player)
+        protected override void OnTriggered(Player player)
         {
             this.player = player;
             transform.DOScale(0, .2f).OnComplete(OnPickedup);
@@ -30,7 +31,7 @@ namespace AntonioHR.HomeColors.Interactables
         {
             gameStateService.GainedPickup();
             player.OnGainedPickup();
-            GameObject.Destroy(this);
+            GameObject.Destroy(gameObject);
         }
     }
 }

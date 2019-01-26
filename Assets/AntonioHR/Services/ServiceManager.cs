@@ -89,7 +89,7 @@ namespace AntonioHR.Services
         }
 
 
-        public static T GetService<T>() where T : Service
+        public static T Get<T>() where T : Service
         {
             return instance.GetOrLoadService<T>(null);
         }
