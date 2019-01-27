@@ -14,6 +14,8 @@ namespace AntonioHR.HomeColors
     {
         public event StatChangeCallback ScoreChanged;
         public event StatChangeCallback HealthChanged;
+        public event Action GameWon;
+
         public event Action<MoodColor> PlayerGainedColor;
 
 
@@ -114,15 +116,22 @@ namespace AntonioHR.HomeColors
         [NaughtyAttributes.Button]
         private void GainBlue()
         {
-            colors.Add(MoodColor.Blue);
+            OnPlayerGainedColor(MoodColor.Blue);
         }
 
 
         [NaughtyAttributes.Button]
         private void GainYellow()
         {
-            colors.Add(MoodColor.Yellow);
+            OnPlayerGainedColor(MoodColor.Yellow);
         }
 
+
+
+        internal void OnGameWon()
+        {
+            if (GameWon != null)
+                GameWon();
+        }
     }
 }

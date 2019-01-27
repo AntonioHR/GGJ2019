@@ -29,7 +29,7 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
                 var path = pathers.CycleStartingAt(i + 1).Select(x => x.position).ToArray();
 
                 var seq = DOTween.Sequence();
-                float time = 0;
+                float time = timeBetweenSteps;
 
                 foreach (var pos in path)
                 {
@@ -37,6 +37,7 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
                     time += timePerStep;
                     time += timeBetweenSteps;
                 }
+                seq.SetEase(Ease.Linear);
                 seq.SetLoops(-1);
             }
         }

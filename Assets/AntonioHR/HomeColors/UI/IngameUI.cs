@@ -44,7 +44,13 @@ namespace AntonioHR.HomeColors.UI
 
             gameStateService = ServiceManager.Get<GameStateService>();
             gameStateService.ScoreChanged += OnScoreChanged;
+            gameStateService.GameWon += OnGameWon;
             SetScoreText(gameStateService.Score);
+        }
+
+        private void OnGameWon()
+        {
+            title.ShowGameWon();
         }
 
         internal void Run()

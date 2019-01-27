@@ -14,8 +14,7 @@ namespace AntonioHR.HomeColors.Interactables
         public enum Mode { CollectAll, CollectMany }
 
         public Transform[] pickupTransformsRecursive;
-
-        [SerializeField]
+        
         private Pickup[] listenedPckups;
         [SerializeField]
         private UnityEvent trigger;
