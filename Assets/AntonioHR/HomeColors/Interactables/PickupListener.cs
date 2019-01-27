@@ -25,6 +25,9 @@ namespace AntonioHR.HomeColors.Interactables
         [SerializeField]
         private Mode mode = Mode.CollectAll;
 
+        [SerializeField]
+        private MoodColor[] colorFilter;
+
 
         [ShowIf("IsCollectAll")]
         [SerializeField]
@@ -48,6 +51,10 @@ namespace AntonioHR.HomeColors.Interactables
             {
                 var allPickups = pickupTransformsRecursive.SelectMany(x => x.GetComponentsInChildren<Pickup>()).Distinct();
                 listenedPckups = allPickups.Where(x => !x.WasPickedUp).ToArray();
+            }
+            if (colorFilter.Length > 0)
+            {
+                listenedPckups = listenedPckups.Where(p => colorFilter.Contains(p.Color)).ToArray();
             }
             Debug.Assert(listenedPckups.Length > 0);
 

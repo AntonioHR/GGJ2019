@@ -31,6 +31,8 @@ namespace AntonioHR.HomeColors.Interactables
         private float lightIntensity = 3;
 
 
+
+        public MoodColor Color { get { return moodColor; } }
         public event Action PickedUp;
 
         public bool WasPickedUp { get; private set; }
