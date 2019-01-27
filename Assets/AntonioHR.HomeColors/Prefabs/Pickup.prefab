@@ -5192,6 +5192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRange: 2
   maxRange: 10
+  color: 0
 --- !u!135 &7580455173790739069
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5268,7 +5269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowMultipleTriggers: 0
   moodColor: 0
-  PickedUp:
+  PickedUpTriggers:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2480143440377156248}

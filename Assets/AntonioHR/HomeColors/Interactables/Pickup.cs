@@ -20,7 +20,7 @@ namespace AntonioHR.HomeColors.Interactables
         [SerializeField]
         private MoodColor moodColor;
         [SerializeField]
-        private UnityEvent PickedUp;
+        private UnityEvent PickedUpTriggers;
         [SerializeField]
         private UnityEvent PickupAnimationOver;
         [SerializeField]
@@ -29,6 +29,11 @@ namespace AntonioHR.HomeColors.Interactables
         private Light light;
         [SerializeField]
         private float lightIntensity = 3;
+
+
+        public event Action PickedUp;
+
+        public bool WasPickedUp { get; private set; }
 
         private void Start()
         {
@@ -39,8 +44,11 @@ namespace AntonioHR.HomeColors.Interactables
         {
             if (gameStateService.PlayerHasColor(moodColor))
             {
+                WasPickedUp = true;
+                if (PickedUp != null)
+                    PickedUp();
                 this.player = player;
-                PickedUp.Invoke();
+                PickedUpTriggers.Invoke();
                 visuals.DOScale(.5f, .2f).SetLoops(2, LoopType.Yoyo).OnComplete(OnPickupAnimationOver);
             } else
             {
