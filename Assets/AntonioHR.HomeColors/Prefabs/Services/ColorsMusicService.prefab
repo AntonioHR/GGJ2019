@@ -854,7 +854,7 @@ MonoBehaviour:
     Id: Tense
     range:
       min: -80
-      max: -5
+      max: 10
       curve:
         serializedVersion: 2
         m_Curve:
