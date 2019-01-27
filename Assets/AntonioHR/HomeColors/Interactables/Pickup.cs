@@ -8,6 +8,7 @@ using AntonioHR.Interactables;
 using AntonioHR.Services;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AntonioHR.HomeColors.Interactables
 {
@@ -15,6 +16,17 @@ namespace AntonioHR.HomeColors.Interactables
     {
         private Player player;
         private GameStateService gameStateService;
+
+        [SerializeField]
+        private UnityEvent PickedUp;
+        [SerializeField]
+        private UnityEvent PickupAnimationOver;
+        [SerializeField]
+        private Transform visuals;
+        [SerializeField]
+        private Light light;
+        [SerializeField]
+        private float lightIntensity = 3;
 
         private void Start()
         {
@@ -24,14 +36,16 @@ namespace AntonioHR.HomeColors.Interactables
         protected override void OnTriggered(Player player)
         {
             this.player = player;
-            transform.DOScale(0, .2f).OnComplete(OnPickedup);
+            PickedUp.Invoke();
+            visuals.DOScale(0, .2f).OnComplete(OnPickupAnimationOver);
         }
 
-        private void OnPickedup()
+        private void OnPickupAnimationOver()
         {
+            light.DOIntensity(lightIntensity, .3f);
+            PickupAnimationOver.Invoke();
             gameStateService.GainedPickup();
             player.OnGainedPickup();
-            GameObject.Destroy(gameObject);
         }
     }
 }
