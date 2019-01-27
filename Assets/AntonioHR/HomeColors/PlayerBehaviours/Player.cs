@@ -24,7 +24,9 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         private PlayerMovement move;
         [SerializeField]
         private ColorActivatedObj[] colorObjs;
-        
+        [SerializeField]
+        private bool startSnapped = false;
+
 
         private IngameScene scene;
         private GameStateService gameState;
@@ -36,6 +38,8 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             scene = ingameScene;
             body.Prepare(this);
             move.Prepare(this);
+            if (startSnapped)
+                move.Snap();
         }
 
         public void OnGainedPickup()
@@ -72,6 +76,11 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         public void SnapTo(Vector3 position, Quaternion rotation, Action callback)
         {
             move.SnapTo(position, rotation, callback);
+        }
+
+        public void Snap()
+        {
+            move.Snap();
         }
 
         public void Unsnap()

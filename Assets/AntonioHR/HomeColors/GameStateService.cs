@@ -62,6 +62,11 @@ namespace AntonioHR.HomeColors
 
         }
 
+        internal void OnTitlePlayed()
+        {
+            CurrentPlayer.Unsnap();
+        }
+
         private void OnScoreChanged(int delta)
         {
             if (ScoreChanged != null)

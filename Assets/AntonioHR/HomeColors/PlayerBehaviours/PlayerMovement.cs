@@ -75,6 +75,12 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             });
         }
 
+        internal void Snap()
+        {
+            snapped = true;
+            charController.enabled = false;
+        }
+
         public void Unsnap()
         {
             snapped = false;
