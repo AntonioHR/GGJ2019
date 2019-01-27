@@ -587,6 +587,21 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 010fcbdc847a6fb418f0dec35311251f, type: 2}
     - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
         type: 3}
+      propertyPath: m_selectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
       propertyPath: _quads.Array.data[0]._mat
       value: 
       objectReference: {fileID: 2100000, guid: 010fcbdc847a6fb418f0dec35311251f, type: 2}
@@ -615,6 +630,81 @@ PrefabInstance:
       propertyPath: _quads.Array.data[5]._mat
       value: 
       objectReference: {fileID: 2100000, guid: 010fcbdc847a6fb418f0dec35311251f, type: 2}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedFaces.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[0].x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[0].y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[1].x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[1].y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[2].x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[2].y
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[3].x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[3].y
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.data[0]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.data[1]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.data[2]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.data[3]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.data[4]
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378752511254723089, guid: 2a0453b269d039346a7f839d9623dad4,
+        type: 3}
+      propertyPath: m_selectedTriangles.Array.data[5]
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 1213907435478858779, guid: 2a0453b269d039346a7f839d9623dad4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
