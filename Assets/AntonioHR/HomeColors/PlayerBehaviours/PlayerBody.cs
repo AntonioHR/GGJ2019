@@ -38,6 +38,11 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             }
         }
 
+        public void AnimateInteraction()
+        {
+            animator.SetTrigger("interact");
+        }
+
         public Vector3 MoveDirection
         {
             get
@@ -80,6 +85,11 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             //transform.eulerAngles = euler;
         }
 
-        
+        void OnInteractKeyFrame()
+        {
+        }
+        void OnInteractOver()
+        {
+        }
     }
 }

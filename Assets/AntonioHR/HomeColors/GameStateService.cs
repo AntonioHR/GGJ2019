@@ -1,7 +1,6 @@
 ﻿using AntonioHR.HomeColors.Interactables;
 using AntonioHR.HomeColors.PlayerBehaviours;
 using AntonioHR.Services;
-using Assets.AntonioHR.HomeColors;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +14,7 @@ namespace AntonioHR.HomeColors
     {
         public event StatChangeCallback ScoreChanged;
         public event StatChangeCallback HealthChanged;
+        public event Action<MoodColor> PlayerGainedColor;
 
 
         private int startingHealth = 3;
@@ -51,6 +51,15 @@ namespace AntonioHR.HomeColors
                 PeformHealthChange(+1);
             }
             OnScoreChanged(1);
+        }
+
+        public void OnPlayerGainedColor(MoodColor givenColor)
+        {
+            colors.Add(givenColor);
+            if (PlayerGainedColor != null)
+                PlayerGainedColor(givenColor);
+
+
         }
 
         private void OnScoreChanged(int delta)

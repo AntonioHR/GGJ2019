@@ -8,12 +8,15 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
 {
     public class PlayerMovement : MonoBehaviour
     {
+        private const float snapTime = .2f;
+
         private CharacterController charController;
         [SerializeField]
         private PlayerBody body;
-
         [SerializeField]
         private float speed = 5;
+
+        private bool snapped = false;
         float fixatedY;
 
         void Awake()
@@ -37,13 +40,20 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
 
         void Update()
         {
+            if (snapped)
+            {
+                body.IsMoving = false;
+                body.MoveDirection = transform.forward;
+                return;
+            }
+
             var move = InputAsMoveAxis;
             body.IsMoving = move.sqrMagnitude > 0;
             body.MoveDirection = move;
             charController.Move(move * speed * Time.deltaTime);
         }
 
-        internal void MoveTo(Vector3 position)
+        public void MoveTo(Vector3 position)
         {
             charController.enabled = false;
             body.gameObject.SetActive(false);
@@ -53,6 +63,25 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
                 body.gameObject.SetActive(true);
             });
         }
+
+        public void SnapTo(Vector3 position, Quaternion rotation, Action callback)
+        {
+            charController.enabled = false;
+            transform.DORotateQuaternion(rotation, snapTime);
+            transform.DOMove(position, snapTime).OnComplete(() =>
+            {
+                callback();
+                snapped = true;
+            });
+        }
+
+        public void Unsnap()
+        {
+            snapped = false;
+            charController.enabled = true;
+        }
+
+
 
         private void LateUpdate()
         {

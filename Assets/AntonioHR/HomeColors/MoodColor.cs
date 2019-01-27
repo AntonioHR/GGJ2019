@@ -1,4 +1,4 @@
-﻿namespace Assets.AntonioHR.HomeColors
+﻿namespace AntonioHR.HomeColors
 {
     public enum MoodColor
     {
