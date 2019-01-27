@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,17 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             body.IsMoving = move.sqrMagnitude > 0;
             body.MoveDirection = move;
             charController.Move(move * speed * Time.deltaTime);
+        }
+
+        internal void MoveTo(Vector3 position)
+        {
+            charController.enabled = false;
+            body.gameObject.SetActive(false);
+            transform.DOMove(position, .2f).OnComplete(() =>
+            {
+                charController.enabled = true;
+                body.gameObject.SetActive(true);
+            });
         }
 
         private void LateUpdate()

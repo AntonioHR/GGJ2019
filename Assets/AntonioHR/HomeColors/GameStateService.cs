@@ -1,4 +1,5 @@
-﻿using AntonioHR.HomeColors.PlayerBehaviours;
+﻿using AntonioHR.HomeColors.Interactables;
+using AntonioHR.HomeColors.PlayerBehaviours;
 using AntonioHR.Services;
 using Assets.AntonioHR.HomeColors;
 using System;
@@ -15,9 +16,14 @@ namespace AntonioHR.HomeColors
         public event StatChangeCallback ScoreChanged;
         public event StatChangeCallback HealthChanged;
 
+
+        private int startingHealth = 3;
+
         private int score = 1;
         public int Score { get { return score; } }
-        private int health = 3;
+
+
+        private int health;
         public int Health { get { return health; } }
 
         public Player CurrentPlayer { get; set; }
@@ -28,9 +34,11 @@ namespace AntonioHR.HomeColors
         private MoodColor startingColor;
 
         List<MoodColor> colors = new List<MoodColor>();
+        private Checkpoint lastCheckpoint;
 
         public override void Init()
         {
+            health = startingHealth;
 
             colors.Add(startingColor);
         }
@@ -76,9 +84,23 @@ namespace AntonioHR.HomeColors
 
         private void OnDied()
         {
-            throw new NotImplementedException();
+            health = 0;
+            PeformHealthChange(startingHealth);
+
+            CurrentPlayer.ResetToCheckpoint(lastCheckpoint);
         }
 
-        
+        public void RegisterCheckpoint(Checkpoint checkpoint)
+        {
+            Debug.Assert(checkpoint != null);
+            lastCheckpoint = checkpoint;
+        }
+
+        [NaughtyAttributes.Button]
+        private void GainBlue()
+        {
+            colors.Add(MoodColor.Blue);
+        }
+
     }
 }

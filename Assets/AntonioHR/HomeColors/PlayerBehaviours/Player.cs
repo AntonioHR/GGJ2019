@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AntonioHR.HomeColors.Interactables;
 using Assets.AntonioHR.HomeColors;
 using UnityEngine;
 
@@ -36,5 +37,9 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         {
         }
 
+        public void ResetToCheckpoint(Checkpoint lastCheckpoint)
+        {
+            move.MoveTo(lastCheckpoint.transform.position);
+        }
     }
 }

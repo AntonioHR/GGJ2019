@@ -1,5 +1,6 @@
 ﻿
 using AntonioHR.HomeColors.Audio;
+using AntonioHR.HomeColors.Interactables;
 using AntonioHR.HomeColors.PlayerBehaviours;
 using AntonioHR.Services;
 using System;
@@ -15,17 +16,23 @@ namespace AntonioHR.HomeColors
     {
         [SerializeField]
         private Player player;
+        [SerializeField]
+        private Checkpoint startingCheckpoint;
 
+        private GameStateService gameState;
 
         public override void Prepare(ServiceManager serviceManager)
         {
-            serviceManager.GetOrLoadService<GameStateService>();
+            gameState = serviceManager.GetOrLoadService<GameStateService>();
             serviceManager.GetOrLoadService<ColorsMusicService>();
+
+            player.Prepare(this);
+            gameState.CurrentPlayer = player;
+            gameState.RegisterCheckpoint(startingCheckpoint);
         }
 
         public override void Run()
         {
-            player.Prepare(this);
         }
     }
 }
