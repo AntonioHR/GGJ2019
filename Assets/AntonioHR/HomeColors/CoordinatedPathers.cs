@@ -53,5 +53,19 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
 
             pathers = list.ToArray();
         }
+
+        private void OnDrawGizmosSelected()
+        {
+            if(pathers == null )
+            {
+                return;
+            }
+
+            Gizmos.color = Color.magenta;
+            foreach (var path in pathers)
+            {
+                Gizmos.DrawSphere(path.position, .1f);
+            }
+        }
     }
 }
