@@ -854,27 +854,27 @@ MonoBehaviour:
     Id: Tense
     range:
       min: -80
-      max: 10
+      max: -5
       curve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0
-          outSlope: 1
+          inSlope: 2.2928953
+          outSlope: 2.2928953
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.04628736
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 0
+          inSlope: 2.2960086
+          outSlope: 2.2960086
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.04725182
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -883,28 +883,28 @@ MonoBehaviour:
   - track:
       Id: Pink
       range:
-        min: -80
-        max: 10
+        min: -60
+        max: 15
         curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 2.2928953
+            outSlope: 2.2928953
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.04628736
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 2.2960086
+            outSlope: 2.2960086
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.04725182
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
@@ -914,27 +914,27 @@ MonoBehaviour:
       Id: Yellow
       range:
         min: -80
-        max: 10
+        max: 15
         curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 2.2928953
+            outSlope: 2.2928953
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.04628736
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 2.2960086
+            outSlope: 2.2960086
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.04725182
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
@@ -944,27 +944,27 @@ MonoBehaviour:
       Id: Blue
       range:
         min: -80
-        max: 10
+        max: 20
         curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 2.2928953
+            outSlope: 2.2928953
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.04628736
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 2.2960086
+            outSlope: 2.2960086
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.04725182
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2

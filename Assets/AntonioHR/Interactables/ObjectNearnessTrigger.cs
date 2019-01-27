@@ -15,9 +15,9 @@ namespace AntonioHR.Interactables
         private List<T> currentObjs = new List<T>();
 
         [SerializeField]
-        private float minRange = 0;
+        public float minRange = 0;
         [SerializeField]
-        private float maxRange = 1;
+        public float maxRange = 1;
 
 
         private void Awake()
@@ -89,5 +89,17 @@ namespace AntonioHR.Interactables
             Gizmos.DrawWireSphere(transform.position, minRange);
             Gizmos.DrawWireSphere(transform.position, maxRange);
         }
+
+        public void SetMinRange(float min)
+        {
+            minRange = min;
+        }
+
+        public void SetMaxRange(float max)
+        {
+            maxRange= max;
+        }
+
+
     }
 }
