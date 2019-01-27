@@ -14,6 +14,10 @@ namespace AntonioHR.HomeColors.Interactables
         public enum Mode { CollectAll, CollectMany }
 
         public Transform[] pickupTransformsRecursive;
+
+
+        [SerializeField]
+        private List<Pickup> manualPickups = new List<Pickup>();
         
         private Pickup[] listenedPckups;
         [SerializeField]
@@ -35,8 +39,16 @@ namespace AntonioHR.HomeColors.Interactables
 
         private void Start()
         {
-            var allPickups = pickupTransformsRecursive.SelectMany(x => x.GetComponentsInChildren<Pickup>()).Distinct();
-            listenedPckups = allPickups.Where(x => !x.WasPickedUp).ToArray();
+
+            if (manualPickups.Count > 0)
+            {
+                listenedPckups = manualPickups.ToArray();
+            }
+            else
+            {
+                var allPickups = pickupTransformsRecursive.SelectMany(x => x.GetComponentsInChildren<Pickup>()).Distinct();
+                listenedPckups = allPickups.Where(x => !x.WasPickedUp).ToArray();
+            }
             Debug.Assert(listenedPckups.Length > 0);
 
             foreach (var pickup in listenedPckups)
