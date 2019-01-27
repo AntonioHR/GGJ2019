@@ -31,11 +31,14 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
                 var seq = DOTween.Sequence();
                 float time = timeBetweenSteps;
 
+                var prevPos = pathers[i].position;
+
                 foreach (var pos in path)
                 {
                     seq.Insert(time, pathers[i].DOMove(pos, timePerStep).SetEase(moveCurve));
                     time += timePerStep;
                     time += timeBetweenSteps;
+                    prevPos = pos;
                 }
                 seq.SetEase(Ease.Linear);
                 seq.SetLoops(-1);
