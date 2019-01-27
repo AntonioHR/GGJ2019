@@ -11,16 +11,18 @@ namespace AntonioHR.HomeColors.Audio
 {
     public class ColorsMusicService : Service
     {
+        [Serializable]
+        private class Mapping
+        {
+            public DynamicTrack track;
+            public MoodColor color;
+        }
         [SerializeField]
         private AudioMixer mixer;
         [SerializeField]
-        private AudioMixerSnapshot calmSnapshot;
-        [SerializeField]
-        private AudioMixerSnapshot tenseSnapshot;
-        [SerializeField]
-        private DynamicTrack calmTrack;
-        [SerializeField]
         private DynamicTrack tenseTrack;
+        [SerializeField]
+        private Mapping[] mappings;
         private GameStateService gameStateService;
 
         public override void Init()
@@ -30,8 +32,11 @@ namespace AntonioHR.HomeColors.Audio
 
         private void LateUpdate()
         {
-
-            calmTrack.Update(mixer);
+            
+            foreach (var mapping in mappings)
+            {
+                mapping.track.Update(mixer);
+            }
             tenseTrack.Update(mixer);
         }
 
@@ -39,7 +44,8 @@ namespace AntonioHR.HomeColors.Audio
         {
             if (gameStateService.PlayerHasColor(color))
             {
-                calmTrack.SetVolume(lerpedNearness);
+                var map = mappings.Where(x => x.color == color).First();
+                map.track.SetVolume(lerpedNearness);
             }
             else
             {

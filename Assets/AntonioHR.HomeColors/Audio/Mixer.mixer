@@ -16,8 +16,12 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: aeafbb46af3a01049b7d29402c7157e2
+    name: Blue
   - guid: 0714278d410bf564eb90461026dcf990
-    name: Calm
+    name: Pink
+  - guid: a116d9dd4d8c8a54ab2cc2c44b421ecb
+    name: Yellow
   - guid: 4616f0e4d6dc609429cd7bbca2dac639
     name: Tense
   m_AudioMixerGroupViews:
@@ -27,6 +31,8 @@ AudioMixerController:
     - 19105c429d19af24c8eb2dc421c0b878
     - d6f7b7c65ada9514f92b75fe6fd41f25
     - b743d8cf7d865d0418915181bdfe5cae
+    - 2dc09334b19136e46b5080ed319b0578
+    - 17d9461cdafb5af4297b7855571b22ff
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -95,13 +101,31 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &243466109778502536
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Melody-Calm-Blue
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 2dc09334b19136e46b5080ed319b0578
+  m_Children: []
+  m_Volume: aeafbb46af3a01049b7d29402c7157e2
+  m_Pitch: 053e7f9656e5e164791548aea030f011
+  m_Effects:
+  - {fileID: 244062453251099054}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &243513411192136062
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Melody-Calm
+  m_Name: Melody-Calm-Pink
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: b743d8cf7d865d0418915181bdfe5cae
   m_Children: []
@@ -109,6 +133,24 @@ AudioMixerGroupController:
   m_Pitch: 943e93103d5053a46b05c2cedc9d9df8
   m_Effects:
   - {fileID: 244331209800144278}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &243534412929843740
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Melody-Calm-Yellow
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 17d9461cdafb5af4297b7855571b22ff
+  m_Children: []
+  m_Volume: a116d9dd4d8c8a54ab2cc2c44b421ecb
+  m_Pitch: 96afc83a92841af4ea268538d0b0cbb4
+  m_Effects:
+  - {fileID: 244631720625501384}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -124,6 +166,8 @@ AudioMixerGroupController:
   m_GroupID: 19105c429d19af24c8eb2dc421c0b878
   m_Children:
   - {fileID: 243975869100461976}
+  - {fileID: 243534412929843740}
+  - {fileID: 243466109778502536}
   - {fileID: 243513411192136062}
   m_Volume: 29167d77c0cb9ad429c2ea9b2f23d9fc
   m_Pitch: dc3814b86a962504aa64a07cd6d2ce12
@@ -151,6 +195,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &244062453251099054
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c860b0b065a4c6f4caad569b4883d407
+  m_EffectName: Attenuation
+  m_MixLevel: 888cf68f4ba09e0439ffbdb00b768d15
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244080814422832912
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -189,6 +247,20 @@ AudioMixerEffectController:
   m_EffectID: f0bea84288773844db3d04a25c39836d
   m_EffectName: Attenuation
   m_MixLevel: 5d8c951cf4d6b9647845f232a3115817
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244631720625501384
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 29ee1fd536246524e934e7c2f19da983
+  m_EffectName: Attenuation
+  m_MixLevel: 95bdc24a6cc8a8945b78e3a33bb449f7
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

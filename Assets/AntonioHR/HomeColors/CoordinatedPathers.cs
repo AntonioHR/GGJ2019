@@ -1,5 +1,6 @@
 ﻿using AntonioHR.Util;
 using DG.Tweening;
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,18 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
                 }
                 seq.SetLoops(-1);
             }
+        }
+
+        [Button]
+        private void ConfigToChildren()
+        {
+            var list = new List<Transform>();
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                list.Add(transform.GetChild(i));
+            }
+
+            pathers = list.ToArray();
         }
     }
 }

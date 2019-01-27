@@ -117,5 +117,12 @@ namespace AntonioHR.HomeColors
             colors.Add(MoodColor.Blue);
         }
 
+
+        [NaughtyAttributes.Button]
+        private void GainYellow()
+        {
+            colors.Add(MoodColor.Yellow);
+        }
+
     }
 }
