@@ -101,6 +101,7 @@ namespace AntonioHR.HomeColors
             health = 0;
             PeformHealthChange(startingHealth);
 
+            CurrentPlayer.OnDied();
             CurrentPlayer.ResetToCheckpoint(lastCheckpoint);
         }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AntonioHR.HomeColors.Interactables;
 using AntonioHR.Services;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AntonioHR.HomeColors.PlayerBehaviours
 {
@@ -18,6 +19,8 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
             public Transform obj;
         }
 
+        [SerializeField]
+        private UnityEvent OnDiedTrigger;
         [SerializeField]
         private PlayerBody body;
         [SerializeField]
@@ -53,6 +56,7 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
 
         public void OnTookDamage()
         {
+            body.OnDamage();
         }
 
         public void Run()
@@ -86,6 +90,11 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         public void Unsnap()
         {
             move.Unsnap();
+        }
+
+        public void OnDied()
+        {
+            OnDiedTrigger.Invoke();
         }
     }
 }

@@ -22381,7 +22381,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-354688
+  m_Name: pb_Mesh-1440
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -24539,7 +24539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912686408}
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 29.76, y: 0, z: 0}
+  m_LocalPosition: {x: 27.5, y: 0, z: 22.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1356140834}
@@ -25186,11 +25186,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 119077411}
-    - target: {fileID: 1569604556967820066, guid: 0e326e1e76e0e514ca5df89705eb4cde,
-        type: 3}
-      propertyPath: startSnapped
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8667844803225232605, guid: 0e326e1e76e0e514ca5df89705eb4cde,
         type: 3}
       propertyPath: m_Mesh
@@ -32818,12 +32813,12 @@ GameObject:
   - component: {fileID: 1741119528}
   - component: {fileID: 1741119527}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MoveTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1741119526
 Transform:
   m_ObjectHideFlags: 0

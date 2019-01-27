@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AntonioHR.HomeColors.PlayerBehaviours
 {
@@ -21,6 +22,8 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
 
         private Player owner;
         private Animator animator;
+        [SerializeField]
+        private UnityEvent onDamageTrigger;
 
         public bool IsMoving
         {
@@ -55,6 +58,11 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
                     return;
                 moveDirection = value;
             }
+        }
+
+        public void OnDamage()
+        {
+            onDamageTrigger.Invoke();
         }
 
         public Player Owner { get { return owner; } }
