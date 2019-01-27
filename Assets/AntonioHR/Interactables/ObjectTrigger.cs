@@ -43,5 +43,10 @@ namespace AntonioHR.Interactables
         }
 
         protected abstract void OnTriggered(T obj);
+
+        public void Reset()
+        {
+            triggered = false;
+        }
     }
 }

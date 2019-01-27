@@ -1,4 +1,5 @@
 ﻿using AntonioHR.Services;
+using Assets.AntonioHR.HomeColors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,46 +12,44 @@ namespace AntonioHR.HomeColors.Audio
 {
     public class ColorsMusicService : Service
     {
-        [Serializable]
-        private class AudioRange
-        {
-            public float min;
-            public float max;
-            public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
-            public float Eval(float value)
-            {
-                return Mathf.Lerp(min, max, curve.Evaluate(value));
-            }
-        }
-        
         [SerializeField]
         private AudioMixer mixer;
-
         [SerializeField]
-        private AudioRange pinkAudio;
+        private AudioMixerSnapshot calmSnapshot;
         [SerializeField]
-        private float decay = 2f;
-
-        private float pinkValInFrame;
-        private float pinkVal;
+        private AudioMixerSnapshot tenseSnapshot;
+        [SerializeField]
+        private DynamicTrack calmTrack;
+        [SerializeField]
+        private DynamicTrack tenseTrack;
+        private GameStateService gameStateService;
 
         public override void Init()
         {
+            gameStateService = ServiceManager.Get<GameStateService>();
         }
-
 
         private void LateUpdate()
         {
-            //Debug.LogFormat("Set Melody To {0}", setValue);
-            pinkVal = Mathf.Max(pinkValInFrame, pinkVal - decay * Time.deltaTime);
-            float setValue = pinkAudio.Eval(pinkVal);
-            mixer.SetFloat("Melody", setValue);
-            pinkValInFrame = 0;
+
+            calmTrack.Update(mixer);
+            tenseTrack.Update(mixer);
         }
 
-        public void SetPinkNearby(float value)
+        public void SetNearby(MoodColor color, float lerpedNearness)
         {
-            pinkValInFrame = Mathf.Max(value, pinkValInFrame);
+            if (gameStateService.PlayerHasColor(color))
+            {
+                calmTrack.SetVolume(lerpedNearness);
+            }
+            else
+            {
+                tenseTrack.SetVolume(lerpedNearness);
+            }
+        }
+
+        public void SetOnPinkRoom()
+        {
         }
     }
 }

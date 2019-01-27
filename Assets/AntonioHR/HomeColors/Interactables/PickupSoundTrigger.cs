@@ -2,6 +2,7 @@
 using AntonioHR.HomeColors.PlayerBehaviours;
 using AntonioHR.Interactables;
 using AntonioHR.Services;
+using Assets.AntonioHR.HomeColors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace AntonioHR.HomeColors.Interactables
     public class PickupSoundTrigger : ObjectNearnessTrigger<Player>
     {
         private ColorsMusicService musicService;
+        [SerializeField]
+        private MoodColor color;
 
         private void Start()
         {
@@ -31,7 +34,7 @@ namespace AntonioHR.HomeColors.Interactables
 
         protected override void UpdateNearness(Player player, float lerpedNearness)
         {
-            musicService.SetPinkNearby(lerpedNearness);
+            musicService.SetNearby(color, lerpedNearness);
         }
     }
 }

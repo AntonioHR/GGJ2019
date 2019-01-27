@@ -5267,6 +5267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowMultipleTriggers: 0
+  moodColor: 0
   PickedUp:
     m_PersistentCalls:
       m_Calls:

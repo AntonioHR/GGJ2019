@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.AntonioHR.HomeColors;
 using UnityEngine;
 
 namespace AntonioHR.HomeColors.PlayerBehaviours
@@ -13,7 +14,6 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         private PlayerBody body;
         [SerializeField]
         private PlayerMovement move;
-
 
         private IngameScene scene;
 
@@ -28,8 +28,13 @@ namespace AntonioHR.HomeColors.PlayerBehaviours
         {
         }
 
+        public void OnTookDamage()
+        {
+        }
+
         public void Run()
         {
         }
+
     }
 }
